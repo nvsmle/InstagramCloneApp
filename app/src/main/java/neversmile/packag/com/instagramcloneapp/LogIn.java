@@ -67,8 +67,7 @@ public class LogIn extends AppCompatActivity {
                                         if (user != null && e == null) {
 
                                             //Toast.makeText(LogIn.this, "Log in successfully!", Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent(LogIn.this, Welcome.class);
-                                            startActivity(intent);
+                                            transitionToSocialMediaActivity();
 
                                         } else {
                                             Toast.makeText(LogIn.this, e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -88,5 +87,12 @@ public class LogIn extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void transitionToSocialMediaActivity() {
+
+        Intent intent = new Intent(LogIn.this, SocialMediaActivity.class);
+        startActivity(intent);
+
     }
 }

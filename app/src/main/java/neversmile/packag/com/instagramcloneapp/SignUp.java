@@ -30,6 +30,10 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup_activity);
 
+        if (ParseUser.getCurrentUser() != null) {
+            transitionToSocialMediaActivity();
+        }
+
         edtEmailSignUp = findViewById(R.id.edtEmailSignUp);
         edtUsernameSignUp = findViewById(R.id.edtUsernameSignUp);
         edtPasswordSignUp = findViewById(R.id.edtPasswordSignUp);
@@ -73,7 +77,8 @@ public class SignUp extends AppCompatActivity {
 
                         if (e == null) {
 
-                            Toast.makeText(SignUp.this, "Sign Up successfully!", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(SignUp.this, "Sign Up successfully!", Toast.LENGTH_SHORT).show();
+                            transitionToSocialMediaActivity();
 
                         } else {
 
@@ -87,7 +92,21 @@ public class SignUp extends AppCompatActivity {
 
             }
         });
+    }
 
+    private void transitionToSocialMediaActivity() {
 
+        Intent intent = new Intent(SignUp.this, SocialMediaActivity.class);
+        startActivity(intent);
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (ParseUser.getCurrentUser() != null) {
+            ParseUser.getCurrentUser().logOut();
+        }
     }
 }
