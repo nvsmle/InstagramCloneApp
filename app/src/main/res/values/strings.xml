@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Sign UP</string>
+    <string name="logo">logo</string>
+    <string name="enter_email">Enter email...</string>
+    <string name="enter_username">Enter user name...</string>
+    <string name="enter_password">Enter password...</string>
+    <string name="btnSignUP">Sign Up</string>
+    <string name="btnLogIn">Log In</string>
+    <string name="btnLogOut">Log Out</string>
+
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+    <string name="back4app_app_id">u0RMVhxCFXcnUfbwTHVRAW4NB8QYClhS5V0RL3AQ</string>
+    <string name="back4app_client_key">VwtRGdyfm7eHSKlrGM7fR6sATGPB72Gki2VNURUO</string>
+</resources>
