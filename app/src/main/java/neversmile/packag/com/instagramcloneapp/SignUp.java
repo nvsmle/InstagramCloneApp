@@ -3,12 +3,15 @@ package neversmile.packag.com.instagramcloneapp;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.parse.Parse;
@@ -48,11 +51,21 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if (edtEmailSignUp.getText().toString().equals("") || edtUsernameSignUp.getText().toString().equals("") || edtPasswordSignUp.getText().toString().equals("")) {
+
+                    Toast.makeText(SignUp.this, "Empty values are not allowed!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 ParseUser appUser = new ParseUser();
 
                 appUser.setEmail(edtEmailSignUp.getText().toString());
                 appUser.setUsername(edtUsernameSignUp.getText().toString());
                 appUser.setPassword(edtPasswordSignUp.getText().toString());
+
+                final ProgressDialog progressDialog = new ProgressDialog(SignUp.this);
+                progressDialog.setMessage("Signing up " + edtUsernameSignUp.getText().toString());
+                progressDialog.show();
 
                 appUser.signUpInBackground(new SignUpCallback() {
                     @Override
@@ -68,6 +81,7 @@ public class SignUp extends AppCompatActivity {
 
                         }
 
+                        progressDialog.dismiss();
                     }
                 });
 
