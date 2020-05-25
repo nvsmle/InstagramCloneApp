@@ -15,6 +15,20 @@
         <include android:id="@+id/myToolBar"
             layout="@layout/my_toolbar"/>
 
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#0A2B6E"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+
     </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewPager"
+        android:layout_below="@+id/appBarLayout"/>
 
 </RelativeLayout>
