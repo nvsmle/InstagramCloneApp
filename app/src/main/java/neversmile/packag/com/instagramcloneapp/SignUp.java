@@ -101,12 +101,4 @@ public class SignUp extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        if (ParseUser.getCurrentUser() != null) {
-            ParseUser.getCurrentUser().logOut();
-        }
-    }
 }
