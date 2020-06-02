@@ -98,6 +98,7 @@ public class SignUp extends AppCompatActivity {
 
         Intent intent = new Intent(SignUp.this, SocialMediaActivity.class);
         startActivity(intent);
+        finish();
 
     }
 

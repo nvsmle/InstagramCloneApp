@@ -93,6 +93,7 @@ public class LogIn extends AppCompatActivity {
 
         Intent intent = new Intent(LogIn.this, SocialMediaActivity.class);
         startActivity(intent);
+        finish();
 
     }
 }
